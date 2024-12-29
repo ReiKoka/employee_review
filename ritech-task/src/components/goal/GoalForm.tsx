@@ -160,7 +160,7 @@ function GoalForm<TFormSchema extends FieldValues>({
               <Button
                 type="submit"
                 variant="default"
-                className="text-foreground"
+                className="dark:text-foreground"
               >
                 {activeModal === "create" ? "Create goal" : "Save Changes"}
               </Button>
