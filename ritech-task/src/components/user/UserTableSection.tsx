@@ -1,7 +1,7 @@
 import { matchReviewsWithManagers } from "@/utils/helperFunctions";
 import {
   ReviewsColumns,
-  ReviewsTableColumns,
+  ReviewsTableColumnsType,
 } from "@/utils/tableUtils/columns";
 import { DataTable } from "@/utils/tableUtils/dataTable";
 import {
@@ -56,13 +56,11 @@ function UserTableSection({
   ) => {
     switch (activeModal) {
       case "editReview": {
-        // console.log("Editing Review:", data);
         editReview({ id: selectedId, data });
         closeModal();
         break;
       }
       case "createReview": {
-        // console.log("Creating Review:", data as AddReviewDataType);
         createReview({
           ...data,
           employeeId: Number((data as AddReviewDataType).employeeId),
@@ -76,7 +74,7 @@ function UserTableSection({
   };
 
   return (
-    <section className="flex-1 rounded-lg bg-card px-4 pt-3 shadow-custom">
+    <section className="flex-1 rounded-lg bg-card px-4 pt-3 shadow-custom dark:bg-muted">
       <div className="mb-3 flex items-center justify-between">
         <h3 className="font-primary text-xl font-bold capitalize tracking-wide text-card-foreground">
           {user?.role === "admin" && "All Reviews"}
@@ -94,7 +92,7 @@ function UserTableSection({
       <div className="dark:scrollbar-hidden h-full max-h-60 overflow-auto">
         <DataTable
           columns={ReviewsColumns}
-          data={(userReviewsWithManagerName as ReviewsTableColumns[]) || []}
+          data={(userReviewsWithManagerName as ReviewsTableColumnsType[]) || []}
         />
       </div>
       <ReviewForm

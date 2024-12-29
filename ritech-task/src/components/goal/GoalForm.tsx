@@ -103,14 +103,14 @@ function GoalForm<TFormSchema extends FieldValues>({
               variant="outline"
               type="button"
               onClick={() => closeModal()}
-              className="font-primary text-foreground"
+              className="font-primary dark:text-foreground"
             >
               Cancel
             </Button>
             <Button
               type="button"
               variant="destructive"
-              className="font-primary text-foreground"
+              className="font-primary dark:text-foreground"
               onClick={() => handleDelete(goalId as number)}
             >
               Delete

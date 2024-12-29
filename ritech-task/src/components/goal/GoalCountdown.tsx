@@ -33,14 +33,14 @@ function GoalCountdown({ goal }: { goal: Goal }) {
   }, [goal.dueDate]);
 
   return (
-    <div className="flex flex-col gap-6 rounded-lg bg-card p-4 font-primary text-card-foreground shadow-custom">
+    <div className="flex flex-col gap-6 rounded-lg bg-card p-6 font-primary text-card-foreground shadow-custom dark:bg-muted">
       <h3 className="font-primary text-xl font-bold capitalize tracking-wide text-card-foreground">
         Time Remaining
       </h3>
       <div className="flex items-center justify-center p-4">
         <CountdownCircleTimer
           size={230}
-          strokeWidth={20}
+          strokeWidth={timeRemaining > 0 ? 20 : 0}
           isPlaying={timeRemaining > 0}
           duration={totalDuration}
           initialRemainingTime={timeRemaining}

@@ -14,7 +14,6 @@ import { Button } from "../ui/button";
 import FormInput from "../FormInput";
 import FormSelect from "../FormSelect";
 import { useAllUsers } from "@/hooks/manager/user/useAllUsers";
-import { useAuth } from "@/context/AuthContext";
 
 type DepartmentFormProps<TFormSchema extends FieldValues> = {
   departmentId?: number;
@@ -41,7 +40,7 @@ function DepartmentForm<TFormSchema extends FieldValues>({
     if (activeModal === "edit" && singleDepartment) {
       methods.reset({
         name: singleDepartment.name,
-        manager_id: singleDepartment.manager.id.toString(), // Convert to string if needed
+        manager_id: singleDepartment.manager.id.toString(),
       } as unknown as DefaultValues<TFormSchema>);
     } else {
       methods.reset({
@@ -91,14 +90,14 @@ function DepartmentForm<TFormSchema extends FieldValues>({
               variant="outline"
               type="button"
               onClick={() => closeModal()}
-              className="font-primary text-foreground"
+              className="font-primary dark:text-foreground"
             >
               Cancel
             </Button>
             <Button
               type="button"
               variant="destructive"
-              className="font-primary text-foreground"
+              className="font-primary dark:text-foreground"
               onClick={() => handleDelete(departmentId as number)}
             >
               Delete

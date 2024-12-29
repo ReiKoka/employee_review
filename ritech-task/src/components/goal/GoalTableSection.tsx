@@ -3,8 +3,8 @@ import { matchFeedbacksWithReviewerName } from "@/utils/helperFunctions";
 import {
   FeedbacksColumns,
   FeedbacksManagerEmployeeColumns,
-  FeedbacksTableColumns,
-  FeedbacksTableManagerEmployeeColumns,
+  FeedbacksTableColumnsType,
+  FeedbacksTableManagerEmployeeColumnsType,
 } from "@/utils/tableUtils/columns";
 import { DataTable } from "@/utils/tableUtils/dataTable";
 import { Feedback, User } from "@/utils/types";
@@ -33,7 +33,7 @@ function GoalTableSection({allFeedbacksForGoal, allUsers}: GoalTableSectionProps
   }
 
   return (
-    <section className="rounded-lg bg-card pl-4 pr-3 pt-3 shadow-custom">
+    <section className="rounded-lg bg-card dark:bg-muted p-4 shadow-custom">
       <div className="flex items-center justify-between mb-3">
         <h3 className="font-primary text-xl font-bold capitalize tracking-wide text-card-foreground">
         {(user?.role === "admin" || user?.role === 'employee')&& "All Goal Feedbacks"}
@@ -46,11 +46,11 @@ function GoalTableSection({allFeedbacksForGoal, allUsers}: GoalTableSectionProps
       <div className="dark:scrollbar-hidden h-full max-h-60 overflow-auto">
         {user?.role === 'admin' && <DataTable
           columns={FeedbacksColumns}
-          data={feedbacksWithReviewerName as FeedbacksTableColumns[]}
+          data={feedbacksWithReviewerName as FeedbacksTableColumnsType[]}
         />}
         {(user?.role === 'manager' || user?.role === 'employee') && <DataTable
           columns={FeedbacksManagerEmployeeColumns }
-          data={allFeedbacksForGoal as FeedbacksTableManagerEmployeeColumns[]}
+          data={allFeedbacksForGoal as FeedbacksTableManagerEmployeeColumnsType[]}
         />}
         
       </div>

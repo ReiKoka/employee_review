@@ -10,7 +10,7 @@ type UserCardProps = {
 
 function UserCard({ icon, title, data, children }: UserCardProps) {
   return (
-    <div className="rounded-lg w-full bg-card p-4 shadow-custom">
+    <div className="w-full rounded-lg bg-card p-4 shadow-custom dark:bg-muted">
       <div className="mb-3 flex items-center gap-6">
         {icon}
         <h3 className="font-primary text-xl font-bold capitalize tracking-wide text-card-foreground">

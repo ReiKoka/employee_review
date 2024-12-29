@@ -47,7 +47,7 @@ export function DataTable<TData, TValue>({
                   key={header.id}
                   className={`${
                     isFirst ? "rounded-tl-lg" : ""
-                  } ${isLast ? "rounded-tr-lg" : ""} bg-secondary text-foreground dark:border-b dark:border-primary`}
+                  } ${isLast ? "rounded-tr-lg" : ""} bg-secondary dark:bg-card text-foreground dark:border-b dark:border-primary`}
                 >
                   {header.isPlaceholder
                     ? null
@@ -61,7 +61,7 @@ export function DataTable<TData, TValue>({
           </TableRow>
         ))}
       </TableHeader>
-      <TableBody>
+      <TableBody >
         {table.getRowModel().rows?.length ? (
           table.getRowModel().rows.map((row) => (
             <TableRow
